@@ -12,6 +12,14 @@
         android:textColor="#00ff00"
         android:text="This is TextView" />
 
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:hint="Type something here"
+        />
+
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
