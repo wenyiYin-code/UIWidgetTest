@@ -1,10 +1,15 @@
 package com.example.uiwidgettest;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.DialogPreference;
+import android.preference.Preference;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -48,12 +53,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(inputText.equals("img_1")) {
                 // 延时启动递增操作
                 handler.postDelayed(incrementRunnable, delayMillis);
-                    imageView.setImageResource(R.drawable.img_1);
+                imageView.setImageResource(R.drawable.img_1);
             }
-            if(inputText.equals("img_2")) {
+            else if(inputText.equals("img_2")) {
                 // 延时启动递增操作
                 handler.postDelayed(incrementRunnable, delayMillis);
-                    imageView.setImageResource(R.drawable.img_2);
+                imageView.setImageResource(R.drawable.img_2);
+            }
+            else{
+                showAlertDialog();
             }
             Toast.makeText(MainActivity.this, inputText,
                     Toast.LENGTH_SHORT).show();
@@ -87,5 +95,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     };
+
+    public void showAlertDialog(){
+        AlertDialog.Builder dialog = new AlertDialog.Builder (MainActivity.this);
+        dialog.setTitle("This is a error");
+        dialog.setMessage("Something you input worn.");
+        dialog.setCancelable(false);
+        dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+
+        });
+        dialog.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+
+        });
+        dialog.show();
+    }
 
 }
