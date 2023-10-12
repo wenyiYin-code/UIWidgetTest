@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -61,7 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 imageView.setImageResource(R.drawable.img_2);
             }
             else{
-                showAlertDialog();
+                //showAlertDialog();
+                showProgressDialog();
             }
             Toast.makeText(MainActivity.this, inputText,
                     Toast.LENGTH_SHORT).show();
@@ -116,6 +118,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         });
         dialog.show();
+    }
+
+    public void showProgressDialog(){
+        ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setTitle("This is a error");
+        progressDialog.setMessage("Loading....");
+        progressDialog.setCancelable(true);
+        progressDialog.show();
     }
 
 }
